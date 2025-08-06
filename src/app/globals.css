@@ -1,0 +1,83 @@
+@import "tailwindcss";
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(45deg, rgb(75, 222, 255) , rgb(196, 255, 77));
+}
+.main{
+width: 100vw;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.container{
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 360px;
+    height: 600px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    background: white;
+        gap: 20px;
+}
+.mainInput{
+    border: solid rgb(91, 91, 91) 0.5px;
+    padding: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+.qrtitle{
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+.addsContainer{
+    width: 360px;
+    height: 300px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+
+    background-color: rgb(48, 52, 55);
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+    gap: 20px;
+}
+.inputContainer{
+    display: flex;
+    flex-direction: column;
+}
+.pointer{
+    cursor: pointer;
+}
+.btnsContainer{
+    display: flex;
+    justify-content: space-between   ;
+}
+button{
+    width: 150px;
+    height: 60px;
+    background: rgb(159, 78, 255);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
