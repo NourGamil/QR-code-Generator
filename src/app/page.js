@@ -1,28 +1,37 @@
 "use client"
 // pages/index.js or a separate component
 
-import React, { useState,useRef } from 'react';
+import React, { useState,useRef,useEffect } from 'react';
     import { useQRCode } from 'next-qrcode';
-    // import html2pdf from 'html2pdf.js';
     import html2canvas from 'html2canvas';
 
     function QRCodeGenerator() {
       const [qrValue, setQrValue] = useState('https://www.example.com');
       const { Image } = useQRCode();
-
-      // const contentRef = useRef(null); // Create a ref to target the HTML content
-      // const generatePdf = () => {
-      //   const element = contentRef.current; // Get the HTML element
-      //   const options = {
-      //     margin:1,
-      //     filename: 'my-document.pdf',
-      //     image: { type: 'jpeg', quality: 0.98 },
-      //     html2canvas: { scale: 1, scrollX: 0, scrollY: 0, width: 320},
+              const options = {
+          margin:1,
+          filename: 'my-document.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 1, scrollX: 0, scrollY: 0, width: 320},
         
-      //     jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      //   };
-      //   html2pdf().set(options).from(element).save();
-      // };
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+      const contentRef = useRef(null);
+      let html2pdfInstance;
+
+      useEffect(() => {
+        // Import html2pdf.js only on the client-side
+        import('html2pdf.js').then((module) => {
+          html2pdfInstance = module.default;
+        });
+      }, []); // Empty dependency array ensures this runs once after mount
+
+      const generatePdf = async () => {
+        if (html2pdfInstance && contentRef.current) {
+          await html2pdfInstance().from(contentRef.current).set(options).save('document.pdf');
+        }
+      };
+
 
       const handleExport = async () => {
   const elementToCapture = document.getElementById('my-element-id'); // Target the element to convert
@@ -42,8 +51,8 @@ import React, { useState,useRef } from 'react';
       return (
         <div className='main'>
           <div className='container'>
-            {/* ref={contentRef} */}
-            <div  id='my-element-id'>
+          
+            <div ref={contentRef} id='my-element-id'>
             <Image
               text={qrValue === "" ||qrValue === null || qrValue === undefined ? ' ' : qrValue}
               options={{
@@ -78,7 +87,7 @@ import React, { useState,useRef } from 'react';
           </div>
 
           <div className='btnsContainer'>
-          {/* <button onClick={generatePdf} className='pointer'>Generate PDF</button> */}
+          <button onClick={generatePdf} className='pointer'>Generate PDF</button>
           <button onClick={handleExport} className='pointer'>Generate PNG</button>
           </div>
 
