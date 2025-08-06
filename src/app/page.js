@@ -5,9 +5,11 @@ import React, { useState,useRef,useEffect } from 'react';
     import { useQRCode } from 'next-qrcode';
     import html2canvas from 'html2canvas';
 
+
     function QRCodeGenerator() {
       const [qrValue, setQrValue] = useState('https://www.example.com');
       const { Image } = useQRCode();
+      const [count, setCount] = useState(0);
               const options = {
           margin:1,
           filename: 'my-document.pdf',
@@ -24,14 +26,13 @@ import React, { useState,useRef,useEffect } from 'react';
         import('html2pdf.js').then((module) => {
           html2pdfInstance = module.default;
         });
-      }, []); // Empty dependency array ensures this runs once after mount
+      }, [count]); // Empty dependency array ensures this runs once after mount
 
       const generatePdf = async () => {
         if (html2pdfInstance && contentRef.current) {
           await html2pdfInstance().from(contentRef.current).set(options).save('document.pdf');
         }
       };
-
 
       const handleExport = async () => {
   const elementToCapture = document.getElementById('my-element-id'); // Target the element to convert
@@ -87,7 +88,10 @@ import React, { useState,useRef,useEffect } from 'react';
           </div>
 
           <div className='btnsContainer'>
-          <button onClick={generatePdf} className='pointer'>Generate PDF</button>
+          <button onClick={(event) => {
+      generatePdf(event);
+      setInterval( ()=> {setCount((c) => c + 1)}, 1000);
+    }} className='pointer'>Generate PDF</button>
           <button onClick={handleExport} className='pointer'>Generate PNG</button>
           </div>
 
