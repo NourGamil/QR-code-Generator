@@ -11,10 +11,10 @@ body{
 width: 100vw;
 height: 100vh;
 display: flex;
-justify-content: center;
+justify-content: space-around;
 align-items: center;
 }
-.container{
+.firstBigContainer{
     border-radius: 25px;
     display: flex;
     flex-direction: column;
@@ -72,12 +72,93 @@ align-items: center;
     justify-content: space-between   ;
 }
 button{
+    color: rgb(255, 255, 255);
     width: 150px;
     height: 60px;
-    background: rgb(159, 78, 255);
+    background: #5200b4;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
+}
+.secondBigContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: space-around;
+    
+}
+.secondContainer{
+    display: flex;
+    width: 400px;
+    height: 240px;
+}
+.paraContainer{
+    width: 240px;
+    gap: 32px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.imgContainer{
+    background: #0c0032;
+    width: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inputLine{
+    border-bottom: 1px solid black;
+}
+.thirdContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    width: 400px;
+    height: 240px;
+        background: #0c0032;
+}
+.thirdContainerAdds{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.thirdContainerAdds input{
+
+    display: none;
+}
+.inputImgTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    width: 200px;
+    height: 60px;
+    background: #5200b4;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+}
+#imgChanger{
+    width: 120px;
+    height: 120px;
+}
+.imgInputContainer{
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+}
+.inputImg{
+    width: 60px;
+    height: 60px;
+}
+.imageUserInput{
+        width: 120px;
+    height: 120px;
 }
