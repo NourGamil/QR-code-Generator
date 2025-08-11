@@ -1,33 +1,35 @@
 @import "tailwindcss";
 body{
+    width: auto;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    width: 100vw;
-    height: 100vh;
     background-image: linear-gradient(45deg, rgb(75, 222, 255) , rgb(196, 255, 77));
+background-repeat:no-repeat;
+background-attachment: fixed;
 }
 .main{
 width: 100vw;
 height: 100vh;
+gap: 20px;
 display: flex;
-justify-content: space-around;
+justify-content: center;
 align-items: center;
 }
 .firstBigContainer{
+        height: 90vh;
+    padding-top: 20px;
     border-radius: 25px;
     display: flex;
     flex-direction: column;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 360px;
-    height: 600px;
     -webkit-border-radius: 25px;
     -moz-border-radius: 25px;
     -ms-border-radius: 25px;
     -o-border-radius: 25px;
-    background: white;
+    background-color: rgba(255, 255, 255, 0.65);
         gap: 20px;
 }
 .mainInput{
@@ -83,11 +85,26 @@ button{
     -o-border-radius: 5px;
 }
 .secondBigContainer{
+    height: 90vh;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.65);
+
+    gap: 40px;
+    justify-content: space-around;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.colorPickerContainer{
+    margin:auto;
+}
+.cardMaker{
     display: flex;
     flex-direction: column;
     gap: 20px;
-    justify-content: space-around;
-    
 }
 .secondContainer{
     display: flex;
@@ -104,7 +121,6 @@ button{
     align-items: center;
 }
 .imgContainer{
-    background: #0c0032;
     width: 160px;
     display: flex;
     justify-content: center;
@@ -120,7 +136,7 @@ button{
         gap: 20px;
     width: 400px;
     height: 240px;
-        background: #0c0032;
+        /* background: #0c0032; */
 }
 .thirdContainerAdds{
     display: flex;
@@ -136,7 +152,8 @@ button{
     justify-content: center;
     align-items: center;
     color: white;
-    width: 200px;
+    gap: 20px;
+    width: 240px;
     height: 60px;
     background: #5200b4;
     border-radius: 5px;
@@ -161,4 +178,80 @@ button{
 .imageUserInput{
         width: 120px;
     height: 120px;
+}
+.linkToPort{
+    color: #5200b4;
+    font-style: italic;
+}
+.anchorDiv{
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-top: 20px;
+    width: 100px;
+}
+@media (max-width:1100px) {
+    .main{
+        height:auto;
+        width: 100vw;
+        gap: 40px;
+        height: auto;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+    .firstBigContainer{
+        align-items: center;
+        height: 90vh;
+        width: 500px;
+    }
+    .addsContainer{
+        width: 96vw;
+    }
+    .secondBigContainer{
+        width: 100vw;
+        gap:30px;
+        height: auto;
+        margin:auto;
+        flex-wrap: wrap;
+    }
+    .secondContainer{
+        width: 324px;
+        height: 194px;
+    }
+    .thirdContainer{
+        width: 324px;
+        height: 194px;
+    }
+    .imgContainer{
+    width: 128px;
+}
+    .paraContainer{
+    width: 196px;
+}
+.inputLine{
+    width: 180px;
+}
+.imgContainer :first-child{
+    width: 100px;
+}
+.imgInputContainer {
+    width: 100px;
+    height: 100px;
+}
+.inputImgTitle{
+    width: 150px;
+    padding: 10px;
+}
+.colorPickerContainer{
+    width: 100vw;
+    height: 60vh;
+    margin-bottom: 10px;
+}
+.anchorDiv{
+        padding-bottom: 10px;
+}
 }

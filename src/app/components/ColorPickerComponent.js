@@ -3,20 +3,21 @@
     import { ColorPicker, useColor } from 'react-color-palette';
     import "react-color-palette/css"; // Import the CSS for react-color-palette
 
-    function ColorPickerComponent({ onDataReceived }) {
+    function ColorPickerComponent({onColorChange}) {
       const [color, setColor] = useColor("hex", "#121212"); // Initial color state
-        const sendDataToParent = (event) => {
-        // const valueToSend = event;
-        // onDataReceived(valueToSend); // Call the parent's callback function
-      };
-      const syncBothFunction = (event)=>{
-        setColor(event);
-        onDataReceived(event);
+      const bothColorFun = (event)=>{
+        setColor(event)
+        onColorChange(event.hex)
       }
       return (
-        <div>
-          <ColorPicker height={200} color={color} onChange={syncBothFunction} />
-          <p>Selected Color: {color.hex}</p>
+        <div className='colorPickerContainer'>
+          <ColorPicker height={200} color={color} onChange={bothColorFun} />
+                  <div className="anchorDiv">
+                    <p className="">Designed by</p> 
+                      <a className="linkToPort" href="https://nourgamil.github.io/My-portfolio/">Nour Gamil</a>
+                      <a className="linkToPort" href="https://nourgamil.github.io/My-portfolio/"><img src="images/main icon.ico" alt="" /></a>
+                    
+                </div>
         </div>
       );
     }

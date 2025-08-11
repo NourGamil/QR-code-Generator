@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 
 
-export default function UploadPage({ onButtonClick }) {
+export default function UploadPage({ onButtonClick,mainColor }) {
   const [imageUrl, setImageUrl] = useState(null);
 
   const handleFileChange = (event) => {
@@ -20,7 +20,7 @@ export default function UploadPage({ onButtonClick }) {
   };
       return (
     <div >
-      <div className="thirdContainer" id='my-element-thirDid'>
+      <div className="thirdContainer" id='my-element-thirDid' style={{background:mainColor}}>
       {imageUrl && (
         <div>
           <div className='imgInputContainer'>
@@ -37,7 +37,7 @@ export default function UploadPage({ onButtonClick }) {
       )}
       </div>
       <div className='thirdContainerAdds'>
-        <label htmlFor="inputImg" className='pointer inputImgTitle'>Upload your logo <img src="/images/imgUpload.svg" alt="" style={{width:40,height:40}} /></label>
+        <label htmlFor="inputImg" className='pointer inputImgTitle'>Upload your logo <img src="images/imgUpload.svg" alt="" style={{width:40,height:40}} /></label>
         <input type="file" accept="image/*" onChange={handleFileChange} className='inputImg pointer' id='inputImg'/>
         <button onClick={onButtonClick} className='pointer'>Generate PNG</button>
         </div>
